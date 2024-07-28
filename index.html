@@ -3,183 +3,387 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lazies Club 2024 - Innovate. Create. Disrupt.</title>
+    <title>VeCode.tech - Student Coding Projects</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-family: 'Roboto', sans-serif;
         }
         body {
-            background-color: #000;
-            color: #fff;
-            padding: 0 15px;
+            background-color: #f8f9fa;
+            color: #202124;
+            line-height: 1.6;
         }
         header {
-            background-color: rgba(0,0,0,0.8);
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        nav {
+            background-color: #fff;
+            padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        nav a {
-            color: #f5f5f7;
-            text-decoration: none;
-            padding: 0 15px;
-            font-size: 14px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
         }
         .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: #0071e3;
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+            font-size: 1.2rem;
+            color: #202124;
         }
-        main {
-            text-align: center;
-            padding: 80px 0;
+        .logo img {
+            width: 150px;
+            margin-right: 8px;
         }
-        h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            background: linear-gradient(45deg, #0071e3, #00c6ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        nav {
+            display: flex;
+            align-items: center;
         }
-        p {
-            font-size: 18px;
-            margin-bottom: 40px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+        nav a {
+            color: #5f6368;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 500;
+            transition: color 0.3s;
         }
-        .cta-buttons {
-            margin-bottom: 60px;
+        nav a:hover {
+            color: #202124;
         }
         .cta-button {
-            display: inline-block;
-            padding: 15px 30px;
-            margin: 10px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-size: 18px;
-            transition: all 0.3s ease;
-        }
-        .primary {
-            background-color: #0071e3;
+            background-color: #1a73e8;
             color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s;
         }
-        .primary:hover {
-            background-color: #0062c4;
+        .cta-button:hover {
+            background-color: #135ab6;
         }
-        .secondary {
-            background-color: rgba(255,255,255,0.1);
-            color: #2997ff;
+        .mobile-menu-button {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
         }
-        .secondary:hover {
-            background-color: rgba(255,255,255,0.2);
+        .mobile-nav {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            position: absolute;
+            top: 60px;
+            right: 10px;
+            background-color: #fff;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            border-radius: 4px;
+            overflow: hidden;
         }
-        .features {
+        .mobile-nav a {
+            margin: 10px 0;
+        }
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .banner {
+            background-color: #e8f0fe;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .banner-content {
+            flex: 1;
+        }
+        .banner h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #202124;
+        }
+        .banner p {
+            color: #5f6368;
+            margin-bottom: 1rem;
+        }
+        .banner-image {
+            flex: 1;
+            text-align: right;
+        }
+        .banner-image img {
+            max-width: 100%;
+            height: auto;
+        }
+        section {
+            margin-bottom: 3rem;
+        }
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #202124;
+            text-align: center;
+            position: relative;
+        }
+        h2::after {
+            content: '';
+            width: 50px;
+            height: 2px;
+            background-color: #1a73e8;
+            display: block;
+            margin: 10px auto 0;
+        }
+        .services, .projects {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            flex: 1;
+            min-width: calc(33% - 1rem);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+        }
+        .card-content {
+            padding: 1rem;
+        }
+        .card-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #202124;
+        }
+        .card-content p {
+            color: #5f6368;
+            font-size: 0.9rem;
+        }
+        .testimonial {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            animation: fadeInUp 1s ease-in-out;
             display: flex;
             flex-direction: column;
             align-items: center;
-            max-width: 1200px;
-            margin: 0 auto 80px;
+            text-align: center;
         }
-        .feature {
-            width: 90%;
-            padding: 20px;
-            background-color: rgba(255,255,255,0.05);
-            border-radius: 10px;
-            margin: 10px 0;
+        .testimonial-author {
+            font-weight: bold;
+            color: #1a73e8;
         }
-        .feature h3 {
-            font-size: 24px;
-            margin-bottom: 15px;
-            color: #0071e3;
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        .feature p {
-            font-size: 16px;
+        .careers {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        .feature img {
-            width: 100%;
-            border-radius: 10px;
+        .careers ul {
+            list-style: none;
+            margin: 1rem 0;
+        }
+        .careers li {
+            margin: 0.5rem 0;
+            font-weight: 500;
+            color: #202124;
         }
         footer {
+            background-color: #f8f9fa;
+            color: #5f6368;
             text-align: center;
-            padding: 20px;
-            background-color: rgba(0,0,0,0.8);
+            padding: 2rem;
+            margin-top: 2rem;
         }
-        @media (min-width: 768px) {
-            .features {
-                flex-direction: row;
-                justify-content: space-around;
-            }
-            .feature {
-                flex-basis: 30%;
-                margin: 20px;
-            }
+        footer nav a {
+            color: #5f6368;
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: 500;
         }
-        @media (min-width: 1200px) {
-            h1 {
-                font-size: 64px;
+        footer nav a:hover {
+            color: #202124;
+        }
+        @media (max-width: 768px) {
+            .mobile-menu-button {
+                display: block;
             }
-            p {
-                font-size: 24px;
+            nav {
+                display: none;
+            }
+            .services, .projects {
+                flex-direction: column;
+            }
+            .card {
+                min-width: 100%;
             }
         }
     </style>
 </head>
 <body>
     <header>
+        <div class="logo">
+            <img src="Screenshot from 2024-07-28 14-55-32.png" alt="VeCode.tech logo">
+        </div>
         <nav>
-            <a href="#" class="logo">Lazies Club 2024</a>
-            <div>
-                <a href="#">About</a>
-                <a href="#">Schedule</a>
-                <a href="#">Sponsors</a>
-                <a href="#">FAQ</a>
-            </div>
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#projects">Projects</a>
+            <a href="#about">About</a>
+            <a href="#careers">Careers</a>
+            <a href="#contact">Contact</a>
+            <a href="#" class="cta-button">Get Started</a>
         </nav>
+        <div class="mobile-menu-button"><i class="fas fa-bars"></i></div>
+        <div class="mobile-nav">
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#projects">Projects</a>
+            <a href="#about">About</a>
+            <a href="#careers">Careers</a>
+            <a href="#contact">Contact</a>
+            <a href="#" class="cta-button">Get Started</a>
+        </div>
     </header>
     
-    <main>
-        <h1>Lazies Club 2024</h1>
-        <p>Join the ultimate coding challenge. 48 hours of innovation, collaboration, and cutting-edge technology. Are you ready to change the future?</p>
-        <div class="cta-buttons">
-            <a href="#" class="cta-button primary">Register Now</a>
-            <a href="#" class="cta-button secondary">Learn More</a>
-        </div>
-        
-        <div class="features">
-            <div class="feature">
-                <h3>$50,000 in Prizes</h3>
-                <img src="https://via.placeholder.com/300" alt="Prizes Image">
-                <p>Compete for cash prizes, internships, and cutting-edge tech gadgets.</p>
+    <main id="home">
+        <div class="banner">
+            <div class="banner-content">
+                <h1>Grow your skills with VeCode.tech</h1>
+                <p>Find the tools and resources you need to learn, create, and manage your coding projects. Starting at just 99 Rupees!</p>
+                <a href="#" class="cta-button">Explore Services</a>
             </div>
-            <div class="feature">
-                <h3>Expert Mentors</h3>
-                <img src="https://via.placeholder.com/300" alt="Mentors Image">
-                <p>Get guidance from industry leaders and tech innovators.</p>
-            </div>
-            <div class="feature">
-                <h3>Networking</h3>
-                <img src="https://via.placeholder.com/300" alt="Networking Image">
-                <p>Connect with fellow developers, designers, and potential employers.</p>
+            <div class="banner-image">
+                <img src="unnamed.webp" alt="Coding illustration">
             </div>
         </div>
         
-        <p>Mark your calendars: October 15-17, 2024<br>Silicon Valley Convention Center</p>
+        <section id="services">
+            <h2>Our Services</h2>
+            <div class="services">
+                <div class="card">
+                    <img src="unnamed.webp" alt="Service 1">
+                    <div class="card-content">
+                        <h3>Web Development</h3>
+                        <p>Build modern and responsive websites with our web development services.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="unnamed (1).webp" alt="Service 2">
+                    <div class="card-content">
+                        <h3>App Development</h3>
+                        <p>Get your custom mobile app developed for both Android and iOS platforms.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="unnamed (5).webp" alt="Service 3">
+                    <div class="card-content">
+                        <h3>AI Solutions</h3>
+                        <p>Leverage AI to enhance your business operations and drive growth.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="projects">
+            <h2>Recent Projects</h2>
+            <div class="projects">
+                <div class="card">
+                    <img src="unnamed (4).webp" alt="Project 1">
+                    <div class="card-content">
+                        <h3>E-commerce Website</h3>
+                        <p>Developed a fully-functional e-commerce platform with payment integration.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="unnamed (3).webp" alt="Project 2">
+                    <div class="card-content">
+                        <h3>Fitness App</h3>
+                        <p>Created a fitness tracking app with personalized workout plans and goals.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="unnamed (2).webp" alt="Project 3">
+                    <div class="card-content">
+                        <h3>AI Chatbot</h3>
+                        <p>Implemented an AI chatbot for customer support, improving response time.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="testimonials">
+            <h2>Testimonials</h2>
+            <div class="testimonial">
+                <p>The support person has good knowledge and helped with a good suggestion on improving my setting that is extraordinary.</p>
+                <p class="testimonial-author">Niraj Singh</p>
+            </div>
+            <div class="testimonial">
+                <p>The support provided by GoDaddy is the best in the industry with knowledgeable customer agents and best practices. They offer the best rates upfront over the call.</p>
+                <p class="testimonial-author">Chandrashekar Mhaskar</p>
+            </div>
+            <div class="testimonial">
+                <p>Great Product and Service Customer Support Assistance from GoDaddy Support Team</p>
+                <p class="testimonial-author">Prashant Khambhayata</p>
+            </div>
+        </section>
+        
+        <section id="careers">
+            <h2>Join Our Team</h2>
+            <div class="careers">
+                <ul>
+                    <li>Frontend Developer</li>
+                    <li>Backend Developer</li>
+                    <li>AI Specialist</li>
+                    <li>Project Manager</li>
+                    <li>Marketing Specialist</li>
+                </ul>
+                <a href="#" class="cta-button">Apply Now</a>
+            </div>
+        </section>
     </main>
     
     <footer>
-        <p>&copy; 2024 Lazies Club. All rights reserved.</p>
+        <p>&copy; 2024 VeCode.tech. All Rights Reserved.</p>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#projects">Projects</a>
+            <a href="#about">About</a>
+            <a href="#careers">Careers</a>
+            <a href="#contact">Contact</a>
+        </nav>
     </footer>
+
+    <script>
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const mobileNav = document.querySelector('.mobile-nav');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileNav.style.display = mobileNav.style.display === 'flex' ? 'none' : 'flex';
+        });
+    </script>
 </body>
 </html>
